@@ -15,6 +15,7 @@ const nextConfig = {
       },
     ];
   },
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],  // Ensure it picks up all relevant page extensions
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
@@ -23,6 +24,9 @@ const nextConfig = {
       };
     }
     return config;
+  },
+  experimental: {
+    appDir: true, // Ensures Next.js uses the `src` directory structure
   },
 };
 
